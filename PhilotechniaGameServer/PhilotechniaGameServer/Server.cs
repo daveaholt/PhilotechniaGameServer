@@ -13,21 +13,23 @@ namespace PhilotechniaGameServer
 
         public static int Port { get; private set; }
 
+        private static ILogger logger;
         private static TcpListener tcpListener;
 
-        public static void Start(int maxPlayers, int portNumber)
+        public static void Start(int maxPlayers, int portNumber, ILogger loggerImpl)
         {
             MaxPlayers = maxPlayers;
             Port = portNumber;
+            logger = loggerImpl;
 
-            Console.WriteLine("Starting Server...");
+            logger.WriteLine("Starting Server...");
             InitilizeServerData();
 
             tcpListener = new TcpListener(IPAddress.Any, Port);
             tcpListener.Start();
             tcpListener.BeginAcceptTcpClient(new AsyncCallback(TCPConnectCallback), null);
 
-            Console.WriteLine($"Server started on port {Port}.");
+            logger.WriteLine($"Server started on port {Port}.");
 
         }
 
@@ -36,18 +38,18 @@ namespace PhilotechniaGameServer
             var client = tcpListener.EndAcceptTcpClient(result);
             tcpListener.BeginAcceptTcpClient(new AsyncCallback(TCPConnectCallback), null);
 
-            Console.WriteLine($"Incomming connnection from {client.Client.RemoteEndPoint}...");
+            logger.WriteLine($"Incomming connnection from {client.Client.RemoteEndPoint}...");
 
             for (var i = 1; i <= MaxPlayers; i++)
             {
                 if(Clients[i].tcp.socket == null)
                 {
-                    Clients[i].tcp.Connect(client);
+                    Clients[i].tcp.Connect(client, logger);
                     return;
                 }
             }
 
-            Console.WriteLine($"{client.Client.RemoteEndPoint} failed to connect: Server full.");
+            logger.WriteLine($"{client.Client.RemoteEndPoint} failed to connect: Server full.");
         }
 
         private static void InitilizeServerData()

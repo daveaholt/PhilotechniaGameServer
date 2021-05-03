@@ -16,13 +16,16 @@ namespace PhilotechniaGameServer
         private NetworkStream stream;
         private byte[] receiveBuffer;
 
+        private ILogger logger;
+
         public TCP(int id)
         {
             this.id = id;
         }
 
-        public void Connect(TcpClient socket)
+        public void Connect(TcpClient socket, ILogger logger)
         {
+            this.logger = logger;
             this.socket = socket;
             socket.ReceiveBufferSize = defaultBufferSize;
             socket.SendBufferSize = defaultBufferSize;
@@ -52,7 +55,7 @@ namespace PhilotechniaGameServer
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error receiving TCP data: {ex}");
+                logger.WriteLine($"Error receiving TCP data: {ex}");
                 //TODO: disconnect
             }
         }

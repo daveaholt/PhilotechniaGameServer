@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhilotechniaGameServer", "PhilotechniaGameServer\PhilotechniaGameServer.csproj", "{A3578C13-AD08-432A-A47E-408DED38FF4F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{68A087CE-CCC5-448F-A6D2-B5DAE8F4676A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A3578C13-AD08-432A-A47E-408DED38FF4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3578C13-AD08-432A-A47E-408DED38FF4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3578C13-AD08-432A-A47E-408DED38FF4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68A087CE-CCC5-448F-A6D2-B5DAE8F4676A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68A087CE-CCC5-448F-A6D2-B5DAE8F4676A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68A087CE-CCC5-448F-A6D2-B5DAE8F4676A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68A087CE-CCC5-448F-A6D2-B5DAE8F4676A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

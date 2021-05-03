@@ -7,7 +7,10 @@ namespace PhilotechniaGameServer
         static void Main(string[] args)
         {
             Console.Title = "Philotechnia Game Server";
-            Server.Start(8, 3074);
+
+            var consoleLogger = new Logger();
+            Server.Start(8, 3074, consoleLogger);
+
             Console.ReadKey(); 
         }
     }
