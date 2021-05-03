@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhilotechniaGameServer", "PhilotechniaGameServer\PhilotechniaGameServer.csproj", "{A3578C13-AD08-432A-A47E-408DED38FF4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3578C13-AD08-432A-A47E-408DED38FF4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3578C13-AD08-432A-A47E-408DED38FF4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3578C13-AD08-432A-A47E-408DED38FF4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3578C13-AD08-432A-A47E-408DED38FF4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8830D7A9-4FED-403E-AFC3-FAA4A04ECBFE}
+	EndGlobalSection
+EndGlobal
