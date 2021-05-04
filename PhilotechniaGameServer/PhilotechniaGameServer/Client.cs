@@ -10,11 +10,13 @@ namespace PhilotechniaGameServer
     {
         public int Id { get; set; }
         public TCP tcp { get; set; }
+        public UDP udp { get; set; }
 
         public Client(int clientId)
         { 
             Id = clientId;
             tcp = new TCP(Id);
+            udp = new UDP(Id);
         }        
     }
 }

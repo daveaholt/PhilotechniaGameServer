@@ -17,6 +17,15 @@ namespace PhilotechniaGameServer
             };
         }
 
+        public static void UDPTest(int toClient)
+        {
+            using(Packet p = new Packet((int)ServerPackets.udpTest))
+            {
+                p.Write("A test packet for UDP");
+                SendUDPData(toClient, p);
+            }
+        }
+
         private static void SendTCPDataToAll(Packet p)
         {
             p.WriteLength();
@@ -36,6 +45,33 @@ namespace PhilotechniaGameServer
                     Server.Clients[i].tcp.SendData(p);
                 }                
             }
+        }
+
+        private static void SendUDPDataToAll(Packet p)
+        {
+            p.WriteLength();
+            for (int i = 1; i <= Server.MaxPlayers; i++)
+            {
+                Server.Clients[i].udp.SendData(p);
+            }
+        }
+
+        private static void SendUDPDataToAll(int exceptClient, Packet p)
+        {
+            p.WriteLength();
+            for (int i = 1; i <= Server.MaxPlayers; i++)
+            {
+                if (i != exceptClient)
+                {
+                    Server.Clients[i].udp.SendData(p);
+                }
+            }
+        }
+
+        private static void SendUDPData(int c, Packet p)
+        {
+            p.WriteLength();
+            Server.Clients[c].udp.SendData(p);
         }
 
         private static void SendTCPData(int c, Packet p)
