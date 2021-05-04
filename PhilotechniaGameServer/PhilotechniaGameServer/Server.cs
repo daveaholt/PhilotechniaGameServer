@@ -12,7 +12,8 @@ namespace PhilotechniaGameServer
         public static Dictionary<int, Client> Clients = new Dictionary<int, Client>();
 
         public static int Port { get; private set; }
-
+        public delegate void PacketHandler(int fromClient, Packet p, ILogger l);
+        public static Dictionary<int, PacketHandler> PacketHandlers;
         private static ILogger logger;
         private static TcpListener tcpListener;
 
@@ -58,6 +59,12 @@ namespace PhilotechniaGameServer
             {
                 Clients.Add(i, new Client(i));
             }
+
+            PacketHandlers = new Dictionary<int, PacketHandler>()
+            {
+                {(int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReveived }
+            };
+            logger.WriteLine("Initilized packets.");
         }
     }
 }

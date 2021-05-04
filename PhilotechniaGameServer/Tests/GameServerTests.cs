@@ -5,7 +5,7 @@ using System;
 namespace Tests
 {
     public class GameServerTests
-    {
+    { 
         private Server unit;
         private ILogger logger;
 
